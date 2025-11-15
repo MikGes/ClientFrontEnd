@@ -56,7 +56,7 @@ export default function ProductsPage() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:4000/users/furnitures'); // Adjust to your endpoint
+                const response = await fetch('https://back-thrumming-star-8653.fly.dev/users/furnitures'); // Adjust to your endpoint
                 if (!response.ok) throw new Error('Failed to fetch products');
                 const data = await response.json();
                 setProducts(data.data || []);
@@ -107,7 +107,7 @@ export default function ProductsPage() {
         setIsSubmitting(true);
 
         try {
-            const res = await fetch('http://localhost:4000/admin/createFurniture', {
+            const res = await fetch('https://back-thrumming-star-8653.fly.dev/admin/createFurniture', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ export default function ProductsPage() {
                 alert('Product created successfully!');
                 closeModals();
                 // Refresh products list
-                const response = await fetch('http://localhost:4000/users/furnitures');
+                const response = await fetch('https://back-thrumming-star-8653.fly.dev/users/furnitures');
                 const data = await response.json();
                 setProducts(data.data || []);
             } else {

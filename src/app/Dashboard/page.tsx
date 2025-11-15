@@ -47,7 +47,7 @@ export default function DashboardPage() {
     try {
       setLoading(true);
       // ✅ Replace with your actual endpoint
-      const res = await fetch('http://localhost:4000/admin/getRecentActivities',{
+      const res = await fetch('https://back-thrumming-star-8653.fly.dev/admin/getRecentActivities', {
         credentials: 'include'
       });
       if (!res.ok) throw new Error('Failed to fetch data');

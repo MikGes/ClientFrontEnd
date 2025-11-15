@@ -12,7 +12,7 @@ export async function makeRequest(email: string, phone: string, furnitureId: any
     );
 
     // Step 2: Make POST request with token in Authorization header
-    const response = await fetch(`http://localhost:4000/users/order/${furnitureId}`, {
+    const response = await fetch(`https://back-thrumming-star-8653.fly.dev/users/order/${furnitureId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

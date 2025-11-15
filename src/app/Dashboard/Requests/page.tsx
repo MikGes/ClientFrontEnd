@@ -37,8 +37,8 @@ export default function RequestsPage() {
     useEffect(() => {
         const fetchRequests = async () => {
             try {
-                const response = await fetch('http://localhost:4000/admin/getrequests',{
-                  credentials: 'include',
+                const response = await fetch('https://back-thrumming-star-8653.fly.dev/admin/getrequests', {
+                    credentials: 'include',
 
                 }); // Adjust to your endpoint
                 if (!response.ok) throw new Error('Failed to fetch requests');
@@ -230,7 +230,7 @@ export default function RequestsPage() {
                                         <FaUser className="mr-2" /> Customer
                                     </h3>
                                     <div className="space-y-2">
-                                       
+
                                         <div>
                                             <span className="text-amber-700 font-medium">Email:</span>
                                             <span className="ml-2">{selectedRequest.orderedBy?.email}</span>

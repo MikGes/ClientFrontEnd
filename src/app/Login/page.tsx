@@ -41,7 +41,7 @@ export default function LoginPage() {
 
         setIsLoading(true);
         try {
-            const result = await fetch("http://localhost:4000/admin/login", {
+            const result = await fetch("https://back-thrumming-star-8653.fly.dev/admin/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

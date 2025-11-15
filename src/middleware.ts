@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
         //     return NextResponse.redirect(loginUrl)
 
         // Send token to your backend to verify
-        return fetch('http://localhost:4000/admin/verify-token', {
+        return fetch('https://back-thrumming-star-8653.fly.dev/admin/verify-token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

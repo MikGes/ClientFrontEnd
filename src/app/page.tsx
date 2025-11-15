@@ -52,7 +52,7 @@ export default function HomePage() {
   useEffect(() => {
     const getFurniture = async () => {
       try {
-        const res = await fetch('http://localhost:4000/users/furnitures');
+        const res = await fetch('https://back-thrumming-star-8653.fly.dev/users/furnitures');
         const result = await res.json();
         if (result.success) {
           setFurnitures(result.data);

@@ -33,8 +33,8 @@ export default function SubscribersPage() {
         const fetchSubscribers = async () => {
             try {
                 // ✅ Replace with your actual endpoint URL
-                const res = await fetch('http://localhost:4000/admin/users',{
-                  credentials: 'include',
+                const res = await fetch('https://back-thrumming-star-8653.fly.dev/admin/users', {
+                    credentials: 'include',
 
                 }); // or your full URL if external
                 if (!res.ok) throw new Error('Failed to fetch subscribers');
@@ -180,11 +180,10 @@ export default function SubscribersPage() {
                                     {subscriber.email}
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap">
-                                    <span className={`px-3 py-1 inline-flex text-xs font-semibold rounded-full ${
-                                        subscriber.status === 'active'
+                                    <span className={`px-3 py-1 inline-flex text-xs font-semibold rounded-full ${subscriber.status === 'active'
                                             ? 'bg-green-100 text-green-800'
                                             : 'bg-yellow-100 text-yellow-800'
-                                    }`}>
+                                        }`}>
                                         {subscriber.status.charAt(0).toUpperCase() + subscriber.status.slice(1)}
                                     </span>
                                 </td>

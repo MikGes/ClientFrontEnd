@@ -12,7 +12,7 @@ export async function createUser(email: string) {
   );
 
   // Step 2: Make POST request with token in Authorization header
-  const res:any = await fetch('http://localhost:4000/users/createUser', {
+  const res: any = await fetch('https://back-thrumming-star-8653.fly.dev/users/createUser', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -20,9 +20,9 @@ export async function createUser(email: string) {
     },
     body: JSON.stringify({ email, token }),
   });
-const resBody = await res.json()
+  const resBody = await res.json()
   if (!res.ok) {
-    return {success:resBody.success,message:resBody.message}
+    return { success: resBody.success, message: resBody.message }
   }
   return await res.json();
 }

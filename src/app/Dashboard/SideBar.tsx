@@ -29,7 +29,7 @@ export default function Sidebar() {
     const handleLogout = async () => {
         const confirmed = window.confirm('Are you sure you want to log out?');
         if (confirmed) {
-            await fetch("http://localhost:4000/admin/logout", { method: 'GET', credentials: 'include' })
+            await fetch("https://back-thrumming-star-8653.fly.dev/admin/logout", { method: 'GET', credentials: 'include' })
             router.push('/Login');
         }
     };
