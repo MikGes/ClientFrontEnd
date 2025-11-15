@@ -9,7 +9,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onViewProducts, onContactClick }: HeroSectionProps) {
   return (
-    <section id="home" className="pt-32 pb-20 md:pt-14 md:pb-28 bg-gradient-to-r from-amber-100 to-amber-50">
+    <section id="home" className="pt-32 pb-20 md:pt-14 md:pb-28 bg-gradient-to-r bg-amber-100 ">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">

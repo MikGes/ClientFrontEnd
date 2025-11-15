@@ -109,6 +109,7 @@ export default function ProductsPage() {
         try {
             const res = await fetch('https://back-thrumming-star-8653.fly.dev/admin/createFurniture', {
                 method: 'POST',
+                credentials: "include",
                 headers: {
                     'Content-Type': 'application/json',
                 },
