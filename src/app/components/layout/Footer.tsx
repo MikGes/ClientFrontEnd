@@ -15,7 +15,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="mt-3 max-w-md">
-              Crafting timeless interiors and bespoke furniture since 1998.
+              Crafting timeless interiors and bespoke furniture since 2021.
               Where tradition meets innovation in design.
             </p>
           </div>

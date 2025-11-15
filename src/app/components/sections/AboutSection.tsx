@@ -27,8 +27,8 @@ export default function AboutSection() {
             </p>
             <div className="flex flex-wrap gap-4">
               {[
-                { value: '25+', label: 'Years Experience' },
-                { value: '500+', label: 'Projects Completed' },
+                { value: '4+', label: 'Years Experience' },
+                { value: '80+', label: 'Projects Completed' },
                 { value: '100%', label: 'Satisfaction' },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center">

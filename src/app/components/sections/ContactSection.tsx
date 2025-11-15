@@ -25,8 +25,7 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-bold text-white">Our Location</h4>
                     <p className="text-amber-200">
-                      123 Design Avenue, Creative District<br />
-                      London, UK
+                      Addis Ababa, Ethiopia
                     </p>
                   </div>
                 </div>
@@ -36,7 +35,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-white">Phone Number</h4>
-                    <p className="text-amber-200">+44 20 1234 5678</p>
+                    <p className="text-amber-200">+25190545515</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -45,7 +44,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-white">Email Address</h4>
-                    <p className="text-amber-200">hello@melcraft.design</p>
+                    <p className="text-amber-200">melcraftinteriors@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -54,7 +53,11 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-white">TikTok</h4>
-                    <p className="text-amber-200">@melcraft.design</p>
+                    <p className="text-amber-200">@mel_craft25</p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Telegram</h4>
+                    <p className="text-amber-200">@melcraft25</p>
                   </div>
                 </div>
               </div>
@@ -62,9 +65,7 @@ export default function ContactSection() {
               <div className="mt-8 pt-6 border-t border-amber-700">
                 <h4 className="font-bold text-white mb-4">Opening Hours</h4>
                 <div className="text-amber-200 space-y-1">
-                  <p>Monday – Friday: 9:00 AM – 6:00 PM</p>
-                  <p>Saturday: 10:00 AM – 4:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  Your vision, our craft — always open.
                 </div>
               </div>
             </div>
@@ -79,10 +80,10 @@ export default function ContactSection() {
               </h3>
               <div className="text-amber-200 space-y-4 flex-grow">
                 <p>
-                  To help us serve you better, here’s what we recommend including in your first message:
+                  To help us serve you better, here’s what we recommend including in your first call:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li>Project scope or goals (e.g., brand refresh, full website)</li>
+                  <li>Project scope or goals (e.g., brand refresh)</li>
                   <li>Preferred timeline or launch date</li>
                   <li>Any visual references or inspiration</li>
                   <li>Budget range (optional but helpful)</li>

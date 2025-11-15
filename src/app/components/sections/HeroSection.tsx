@@ -36,7 +36,7 @@ export default function HeroSection({ onViewProducts, onContactClick }: HeroSect
           </div>
 
           <div className="md:w-1/2 flex justify-center relative">
-            <Image src={HeroLogo} alt="Hero Logo" className="relative" />
+            <Image src={HeroLogo} alt="Hero Logo" className="relative rounded-full" />
 
           </div>
         </div>
