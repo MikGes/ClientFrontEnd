@@ -276,12 +276,6 @@ export default function HomePage() {
           product={selectedProduct}
           isOpen={!!selectedProduct}
           onClose={closeProductModal}
-          contactForm={contactForm}
-          formErrors={formErrors}
-          isSubmitting={isSubmitting}
-          submitSuccess={submitSuccess}
-          onInputChange={handleInputChange}
-          onSubmit={handleContactSubmit}
         />
       )}
     </div>
