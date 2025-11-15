@@ -1,5 +1,5 @@
 // components/sections/ContactSection.tsx
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaTiktok, FaClock, FaLightbulb } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaTiktok, FaClock, FaLightbulb, FaTelegram } from 'react-icons/fa';
 
 export default function ContactSection() {
   return (
@@ -55,6 +55,13 @@ export default function ContactSection() {
                     <h4 className="font-bold text-white">TikTok</h4>
                     <p className="text-amber-200">@mel_craft25</p>
                   </div>
+
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-amber-700 p-3 rounded-lg mr-4 flex-shrink-0">
+                    <FaTelegram className="text-white text-xl" />
+                  </div>
+
                   <div>
                     <h4 className="font-bold text-white">Telegram</h4>
                     <p className="text-amber-200">@melcraft25</p>
