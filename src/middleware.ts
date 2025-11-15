@@ -6,7 +6,6 @@ export function middleware(request: NextRequest) {
     // Only run middleware on /dashboard/* routes
     if (pathname.startsWith('/Dashboard')) {
         const token = request.cookies.get('access_token')?.value
-        console.log(token)
         const loginUrl = new URL('/Login', request.url)
         // if(!token)
         //     return NextResponse.redirect(loginUrl)
@@ -14,6 +13,7 @@ export function middleware(request: NextRequest) {
         // Send token to your backend to verify
         return fetch('https://back-thrumming-star-8653.fly.dev/admin/verify-token', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
