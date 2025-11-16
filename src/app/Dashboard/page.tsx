@@ -1,16 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import {
-  FaUsers, FaBox, FaClipboardList, FaChartLine, FaSyncAlt,
-  FaEnvelope, FaChair
-} from 'react-icons/fa';
+import { FaUsers, FaBox, FaClipboardList, FaChartLine, FaSyncAlt, FaEnvelope, FaChair, FaMobileAlt } from 'react-icons/fa';
 import { formatDistanceToNow } from 'date-fns';
 
-// ----------------------
-// Types
-// ----------------------
+// Types based on your API response
 interface RecentUser {
   _id: string;
   email: string;
@@ -44,83 +38,34 @@ interface RecentActivitiesData {
   recentProduct: RecentProduct | null;
 }
 
-// ----------------------
-// Component
-// ----------------------
 export default function DashboardPage() {
-  const router = useRouter();
   const [activities, setActivities] = useState<RecentActivitiesData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [tokenVerified, setTokenVerified] = useState(false);
   const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
 
-  // --------------------------------------
-  // 1. VERIFY TOKEN BEFORE LOADING PAGE
-  // --------------------------------------
-  useEffect(() => {
-    async function verifyToken() {
-      try {
-        const res = await fetch(
-          'https://back-thrumming-star-8653.fly.dev/admin/verify-token',
-          {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        );
-
-        const data = await res.json();
-        if (!data.is_authenticated) {
-          router.push('/Login');
-          return;
-        }
-
-        setTokenVerified(true);
-      } catch (err) {
-        console.error('Token verification failed:', err);
-        router.push('/Login');
-      }
-    }
-
-    verifyToken();
-  }, [router]);
-
-  // --------------------------------------
-  // 2. FETCH RECENT ACTIVITIES
-  // --------------------------------------
   const fetchRecentActivities = async () => {
     try {
       setLoading(true);
-
-      const res = await fetch(
-        'https://back-thrumming-star-8653.fly.dev/admin/getRecentActivities',
-        { credentials: 'include' }
-      );
-
-      if (!res.ok) throw new Error('Failed to fetch activities');
-
+      // ✅ Replace with your actual endpoint
+      const res = await fetch('https://back-thrumming-star-8653.fly.dev/admin/getRecentActivities', {
+        credentials: 'include'
+      });
+      if (!res.ok) throw new Error('Failed to fetch data');
       const result = await res.json();
       setActivities(result.data);
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error('Error fetching recent activities:', error);
     } finally {
       setLoading(false);
       setLastUpdated(new Date());
     }
   };
 
-  // Fetch after token is verified
   useEffect(() => {
-    if (tokenVerified) {
-      fetchRecentActivities();
-    }
-  }, [tokenVerified]);
+    fetchRecentActivities();
+  }, []);
 
-  // --------------------------------------
-  // Format timestamps
-  // --------------------------------------
+  // Format time (e.g., "2 hours ago")
   const formatTime = (dateString: string): string => {
     try {
       return formatDistanceToNow(new Date(dateString), { addSuffix: true });
@@ -129,30 +74,15 @@ export default function DashboardPage() {
     }
   };
 
-  // --------------------------------------
-  // Professional Full-Screen Loader
-  // --------------------------------------
-  if (!tokenVerified) {
-    return (
-      <div className="flex items-center justify-center h-screen flex-col">
-        <div className="animate-spin w-12 h-12 border-4 border-amber-600 border-t-transparent rounded-full"></div>
-        <p className="mt-4 text-amber-700 text-lg">Checking authentication...</p>
-      </div>
-    );
-  }
+  // Mock stats (replace with real counts when available)
+  const stats = [
+    { title: 'Total Products', value: '—', change: '—', icon: <FaBox className="text-2xl text-amber-700" /> },
+    { title: 'New Requests', value: '—', change: '—', icon: <FaClipboardList className="text-2xl text-amber-700" /> },
+    { title: 'Subscribers', value: '—', change: '—', icon: <FaUsers className="text-2xl text-amber-700" /> },
+    { title: 'Revenue', value: '—', change: '—', icon: <FaChartLine className="text-2xl text-amber-700" /> },
+  ];
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen flex-col">
-        <div className="animate-spin w-12 h-12 border-4 border-amber-600 border-t-transparent rounded-full"></div>
-        <p className="mt-4 text-amber-700 text-lg">Loading dashboard...</p>
-      </div>
-    );
-  }
-
-  // --------------------------------------
-  // Build recent activity list
-  // --------------------------------------
+  // Build dynamic activity list
   const recentActivity = [];
 
   if (activities?.recentProduct) {
@@ -185,16 +115,6 @@ export default function DashboardPage() {
     });
   }
 
-  // --------------------------------------
-  // Render Dashboard
-  // --------------------------------------
-  const stats = [
-    { title: 'Total Products', value: '—', change: '—', icon: <FaBox className="text-2xl text-amber-700" /> },
-    { title: 'New Requests', value: '—', change: '—', icon: <FaClipboardList className="text-2xl text-amber-700" /> },
-    { title: 'Subscribers', value: '—', change: '—', icon: <FaUsers className="text-2xl text-amber-700" /> },
-    { title: 'Revenue', value: '—', change: '—', icon: <FaChartLine className="text-2xl text-amber-700" /> },
-  ];
-
   return (
     <div className="p-6">
       <div className="mb-8">
@@ -202,7 +122,7 @@ export default function DashboardPage() {
         <p className="text-amber-700 mt-2">Welcome back! Here's what's happening with your store.</p>
       </div>
 
-      {/* Stats */}
+      {/* Stats Cards (placeholder — replace with real data later) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white rounded-xl shadow-md p-6 border border-amber-100">
@@ -230,11 +150,13 @@ export default function DashboardPage() {
             className="flex items-center text-amber-700 hover:text-amber-900 disabled:opacity-50"
           >
             <FaSyncAlt className={`mr-2 ${loading ? 'animate-spin' : ''}`} />
-            Refresh
+            {loading ? 'Loading...' : 'Refresh'}
           </button>
         </div>
 
-        {recentActivity.length > 0 ? (
+        {loading ? (
+          <p className="text-amber-600 italic">Loading recent activity...</p>
+        ) : recentActivity.length > 0 ? (
           <div className="space-y-4">
             {recentActivity.map((activity) => (
               <div
@@ -255,6 +177,7 @@ export default function DashboardPage() {
         )}
       </div>
 
+      {/* Last Updated */}
       <div className="mt-6 text-center text-amber-600 text-sm">
         Last updated: {lastUpdated.toLocaleString()}
       </div>
