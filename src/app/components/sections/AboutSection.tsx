@@ -17,7 +17,7 @@ export default function AboutSection() {
           <div className="md:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-6">Crafted with Passion, Built to Last</h2>
             <p className="text-amber-700 mb-6">
-              For over two decades, Melcraft has been synonymous with exceptional craftsmanship and timeless design.
+              For over 4 decades, Melcraft has been synonymous with exceptional craftsmanship and timeless design.
               Our master artisans combine traditional techniques with contemporary aesthetics to create pieces that
               become heirlooms for generations.
             </p>
