@@ -12,24 +12,25 @@ export default function ProductCard({ product, isInterior = false, onViewDetails
     >
       {!isInterior && product.special_description && (
         <p className="bg-green-500 text-white text-center font-semibold py-2 animate-marquee">
-          {product.special_description}
+          {product.special_description} 1
         </p>
       )}
       <div className="h-48 bg-amber-200 flex items-center justify-center">
-        <div className="bg-amber-300 w-32 h-32 rounded-lg flex items-center justify-center">
-          <span className="text-amber-800 font-bold text-lg">
-            {(product.furniture_name).split(' ')[0]}
-          </span>
-        </div>
+        <img
+          src={product.furniture_image}
+          className="w-full h-full object-cover rounded-md"
+          alt="Furniture"
+        />
       </div>
+
       <div className="p-6">
         <div className="flex justify-between items-start">
           <div>
             <h4 className="font-bold text-lg text-amber-900">
-              {isInterior ? product.name : product.furniture_name}
+              {product.furniture_name}
             </h4>
             <p className="text-amber-700 text-sm mt-1">
-              {isInterior ? product.category : product.furniture_type}
+              {product.furniture_type}
             </p>
           </div>
           <span className="font-bold text-amber-800">

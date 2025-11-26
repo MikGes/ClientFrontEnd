@@ -174,7 +174,7 @@ export default function LoginPage() {
 
                 {/* Footer */}
                 <div className="mt-8 text-center text-amber-700 text-sm">
-                    <p>© {new Date().getFullYear()} Your Company. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} MelCraft. All rights reserved.</p>
                 </div>
             </div>
         </div>

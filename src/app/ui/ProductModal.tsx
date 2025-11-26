@@ -98,7 +98,7 @@ export default function ProductModal({
     <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-amber-200 flex justify-between items-center p-6">
-          <h2 className="text-2xl font-bold text-amber-900">{product.furniture_name || product.name}</h2>
+          <h2 className="text-2xl font-bold text-amber-900">{product.furniture_name}</h2>
           <button
             onClick={onClose}
             className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-white bg-opacity-80 text-gray-600 hover:bg-amber-100 hover:text-amber-700 shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-amber-400"
@@ -127,14 +127,14 @@ export default function ProductModal({
             <div className="md:w-1/2">
               <div className="mb-6">
                 <span className="text-amber-700 font-medium">
-                  {product.furniture_type || product.category}
+                  {product.furniture_type}
                 </span>
                 <h3 className="text-3xl font-bold text-amber-900 mt-2">
                   {product.furniture_price || product.price} Birr
                 </h3>
               </div>
               <p className="text-amber-800 mb-6">
-                {product.furniture_description || product.description}
+                {product.furniture_description}
               </p>
 
               {/* Contact Form */}

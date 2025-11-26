@@ -89,8 +89,8 @@ export default function DashboardPage() {
     recentActivity.push({
       id: 'product',
       action: 'New product added',
-      item: activities.recentProduct.furniture_name,
-      time: formatTime(activities.recentProduct.createdAt),
+      item: activities?.recentProduct?.furniture_name,
+      time: formatTime(activities?.recentProduct?.createdAt),
       icon: <FaChair className="text-amber-700" />,
     });
   }
@@ -99,8 +99,8 @@ export default function DashboardPage() {
     recentActivity.push({
       id: 'request',
       action: 'New request received',
-      item: `${activities.recentRequest.ordered_furniture.furniture_name} • ${activities.recentRequest.orderedBy.email}`,
-      time: formatTime(activities.recentRequest.createdAt),
+      item: `${activities?.recentRequest?.ordered_furniture?.furniture_name} • ${activities?.recentRequest?.orderedBy?.email}`,
+      time: formatTime(activities?.recentRequest?.createdAt),
       icon: <FaClipboardList className="text-amber-700" />,
     });
   }

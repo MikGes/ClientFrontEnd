@@ -134,8 +134,8 @@ export default function RequestsPage() {
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-amber-100">
-                        {requests.map((request) => {
-                            const { date, time } = formatDateTime(request.createdAt);
+                        {requests?.map((request) => {
+                            const { date, time } = formatDateTime(request?.createdAt);
                             return (
                                 <tr key={request._id} className="hover:bg-amber-50">
                                     <td className="px-6 py-4 whitespace-nowrap">
@@ -144,8 +144,8 @@ export default function RequestsPage() {
                                                 <FaUser className="text-amber-700" />
                                             </div>
                                             <div>
-                                                <div className="font-medium text-amber-900">{request.orderedBy?.email}</div>
-                                                <div className="text-amber-700 text-sm">{request.ordered_furniture.furniture_type}</div>
+                                                <div className="font-medium text-amber-900">{request?.orderedBy?.email}</div>
+                                                <div className="text-amber-700 text-sm">{request?.ordered_furniture?.furniture_type}</div>
                                             </div>
                                         </div>
                                     </td>
@@ -155,19 +155,19 @@ export default function RequestsPage() {
                                                 <FaCouch className="text-amber-700" />
                                             </div>
                                             <div>
-                                                <div className="font-medium text-amber-900">{request.ordered_furniture.furniture_name}</div>
-                                                <div className="text-amber-700 text-sm">{request.ordered_furniture.furniture_price} Birr</div>
+                                                <div className="font-medium text-amber-900">{request?.ordered_furniture?.furniture_name}</div>
+                                                <div className="text-amber-700 text-sm">{request?.ordered_furniture?.furniture_price} Birr</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-amber-700">
                                         <div className="flex items-center mb-1">
                                             <FaEnvelope className="mr-2 text-amber-600 flex-shrink-0" />
-                                            <span className="truncate">{request.orderedBy?.email}</span>
+                                            <span className="truncate">{request?.orderedBy?.email}</span>
                                         </div>
                                         <div className="flex items-center text-sm">
                                             <FaPhone className="mr-2 text-amber-600 flex-shrink-0" />
-                                            <span>{request.phoneNumber || 'N/A'}</span>
+                                            <span>{request?.phoneNumber || 'N/A'}</span>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-amber-700">
